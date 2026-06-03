@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Test AR.js - Marcador de Imagen Fijo (NFT)</title>
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <title>Test AR.js - Marcador Hiro Corregido</title>
+    
+    <!-- Scripts estables y recomendados para A-Frame y AR.js -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: true; trackingType: nft;">
+    <!-- Configuración básica de arjs con la cámara web -->
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
         
-        <a-nft-camera type="nft" url="./HIRO">
-            <a-box position="0 0.5 0" material="color: red;"></a-box>
-        </a-nft-camera>
+        <!-- Definir el marcador de patrón 'hiro' -->
+        <a-marker preset="hiro">
+            <!-- Colocar el cubo rojo sobre el marcador -->
+            <!-- Escalamos el cubo un poco para que no sea tan grande -->
+            <a-box position="0 0.5 0" scale="0.5 0.5 0.5" material="color: red;"></a-box>
+        </a-marker>
         
+        <!-- Definir la entidad cámara -->
         <a-entity camera></a-entity>
     </a-scene>
 </body>
