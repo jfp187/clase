@@ -3,21 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Test AR.js - Marcador Hiro Corregido</title>
+    <title>Test AR.js - Texto en Marcador Hiro</title>
     
-    <!-- Scripts estables y recomendados para A-Frame y AR.js -->
+    <!-- Scripts estables para A-Frame y AR.js -->
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
-    <!-- Configuración básica de arjs con la cámara web -->
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
         
         <!-- Definir el marcador de patrón 'hiro' -->
         <a-marker preset="hiro">
-            <!-- Colocar el cubo rojo sobre el marcador -->
-            <!-- Escalamos el cubo un poco para que no sea tan grande -->
-            <a-box position="0 0.5 0" scale="0.5 0.5 0.5" material="color: red;"></a-box>
+            
+            <!-- Texto de Bienvenida y contenido del taller -->
+            <!-- El texto se rota en el eje X (-90) para que quede "acostado" paralelo al marcador físico -->
+            <a-text 
+                value="Bienvenido a la clase didactica de la tecnologia inmersiva, durante el curso vamos a practicar con la creacion de algunos materiales inmersivos accesibles.\n\nDecisiones didacticas: ¿cuando usar AR y cuando no?" 
+                position="-1.5 0.1 0" 
+                rotation="-90 0 0" 
+                color="#FF0000" 
+                width="3" 
+                wrap-count="30">
+            </a-text>
+
         </a-marker>
         
         <!-- Definir la entidad cámara -->
