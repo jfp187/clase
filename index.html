@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Test AR.js - Texto en Marcador Hiro</title>
+    <title>Test AR.js - Imagen en Marcador Hiro</title>
     
     <!-- Scripts estables para A-Frame y AR.js -->
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
@@ -12,19 +12,24 @@
 <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
         
+        <!-- Sistema de gestión de recursos para precargar la imagen de manera óptima -->
+        <a-assets>
+            <img id="banner" src="bienvenida.png">
+        </a-assets>
+        
         <!-- Definir el marcador de patrón 'hiro' -->
         <a-marker preset="hiro">
             
-            <!-- Texto de Bienvenida y contenido del taller -->
-            <!-- El texto se rota en el eje X (-90) para que quede "acostado" paralelo al marcador físico -->
-            <a-text 
-                value="Bienvenido a la clase didactica de la tecnologia inmersiva, durante el curso vamos a practicar con la creacion de algunos materiales inmersivos accesibles.\n\nDecisiones didacticas: ¿cuando usar AR y cuando no?" 
-                position="-1.5 0.1 0" 
+            <!-- Mostramos la imagen mapeada en un plano flotante -->
+            <!-- 'rotation="-90 0 0"' la acuesta sobre el marcador -->
+            <!-- 'width' y 'height' mantienen la proporción rectangular aproximada (4:3 o similar) -->
+            <a-image 
+                src="#banner" 
+                position="0 0.2 0" 
                 rotation="-90 0 0" 
-                color="#FF0000" 
                 width="3" 
-                wrap-count="30">
-            </a-text>
+                height="2.1">
+            </a-image>
 
         </a-marker>
         
