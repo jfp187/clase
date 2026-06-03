@@ -8,11 +8,29 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: true;">
+    <a-nft
+    type="nft"
+    url="./taller"
+    smooth="true"
+    smoothCount="5"
+    smoothTolerance=".01"
+    smoothThreshold="5"
+>
         <a-nft type="nft" url="./HIRO">
             <a-box position="0 0.5 0" material="color: red;"></a-box>
         </a-nft>
         <a-entity camera></a-entity>
     </a-scene>
 </body>
+    <script>
+    window.addEventListener('arjs-nft-loaded', function(ev) {
+        console.log('NFT markers loaded successfully');
+        document.querySelector('.arjs-loader').style.display = 'none';
+    });
+    
+    window.addEventListener('arjs-nft-error', function(ev) {
+        console.error('Error loading NFT markers', ev);
+        document.querySelector('.arjs-loader').innerHTML = '<div>Error cargando marcadores. Verifica los archivos .fset</div>';
+    });
+</script>
 </html>
